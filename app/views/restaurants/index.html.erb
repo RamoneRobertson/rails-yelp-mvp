@@ -4,6 +4,7 @@
     <h5><%= restaurant.name %></h5>
     <p><%= restaurant.category.capitalize %></p>
     <p><%= restaurant.address %></p>
+    <%= link_to "View", restaurant_path(restaurant) %>
   </div>
   <% end %>
 </div>

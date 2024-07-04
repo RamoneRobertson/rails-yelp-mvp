@@ -10,11 +10,17 @@ class RestaurantsController < ApplicationController
     # end
   end
 
+  # The user can view one restaurant
+  # ----- GET 'restaurants/:id', to: 'restaurants#show'
   def show
+    @description = Faker::Restaurant.description
+    @reviews = @restaurant.reviews
+    @user = Faker::Twitter.screen_name
   end
 
   private
+  # This method will sfind the current restaurant from the db using it's id
   def set_restaurant
-    @restaunt = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 end

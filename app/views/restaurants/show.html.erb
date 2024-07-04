@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="banner">
+    <div class="banner-text">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @description %></p>
+    </div>
+  </div>
+
+  <div class="review-card">
+    <h3><%= @user %></h3>
+    <% @reviews.each do |review| %>
+    <p><%= review.content %></p>
+    <% review.rating.times do %>
+      <i class="fa-solid fa-star"></i>
+    <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
+</div>
