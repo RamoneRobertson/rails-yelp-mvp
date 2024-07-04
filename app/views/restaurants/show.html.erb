@@ -6,14 +6,13 @@
     </div>
   </div>
 
-  <div class="review-card">
-    <h3><%= @user %></h3>
-    <% @reviews.each do |review| %>
-    <p><%= review.content %></p>
+  <% @reviews.each do |review| %>
+    <div class="review-card mb-3">
+      <p><%= review.content %></p>
     <% review.rating.times do %>
       <i class="fa-solid fa-star"></i>
     <% end %>
+    </div>
     <% end %>
-  </div>
   <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
 </div>
