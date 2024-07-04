@@ -18,9 +18,25 @@ class RestaurantsController < ApplicationController
     @user = Faker::Twitter.screen_name
   end
 
+  # The user should be able to add a new restaurant to the site
+  #----- GET 'restaurants/new', to: 'restaurants#new'
+  def new
+    @restaurant = Restaurant.new()
+  end
+
+  # Create the restaurnat in the db
+  def create
+    @restaurant = Restaurant.create(restaurant_params)
+    redirect_to restaurant_path(@restaurant)
+  end
+
   private
   # This method will sfind the current restaurant from the db using it's id
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 end
