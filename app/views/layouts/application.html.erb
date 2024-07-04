@@ -12,25 +12,15 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <nav class="navbar">
-        <ul class="nav">
-          <li>
-            <a class="navbar-brand" href="/restaurants">
-              <%# <img src="app/assets/images/logo-color.png" alt="Good Plate" width="30" height="24"> %>
-              <%= image_tag "good-plate-logo.png", alt: "Good Plate", class: 'd-inline-block align-text-center', width: 30, height: 24 %> Good Plate
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Restaurants</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#">Add Restaurant</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
+    <nav class="navbar bg-body-tertiary mb-3">
+      <div class="container-fluid">
+        <a href="/restaurants" class="nav-link">Good Plate</a>
+        <div class="d-flex" role="search">
+          <a href="/restaurants" class="nav-link">Restaurants</a>
+          <a href="/restaurants/new" class="nav-link">Add Restaurant</a>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

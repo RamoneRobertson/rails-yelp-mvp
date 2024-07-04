@@ -1,0 +1,9 @@
+<div class="grid m-3">
+  <% @restaurants.each do |restaurant| %>
+  <div class="card p-3">
+    <h5><%= restaurant.name %></h5>
+    <p><%= restaurant.category.capitalize %></p>
+    <p><%= restaurant.address %></p>
+  </div>
+  <% end %>
+</div>
