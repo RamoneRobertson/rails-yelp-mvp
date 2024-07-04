@@ -21,13 +21,20 @@ class RestaurantsController < ApplicationController
   # The user should be able to add a new restaurant to the site
   #----- GET 'restaurants/new', to: 'restaurants#new'
   def new
-    @restaurant = Restaurant.new()
+    @restaurant = Restaurant.new
   end
 
   # Create the restaurnat in the db
   def create
-    @restaurant = Restaurant.create(restaurant_params)
-    redirect_to restaurant_path(@restaurant)
+    @restaurant = Restaurant.new(restaurant_params)
+    # If the restaurant successfully saves
+    if @restaurant.save
+      # redirect to the new restaurant page
+      redirect_to restaurant_path(@restaurant)
+    else
+      # If the restaurant fails to save, render the new view and throw an error
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

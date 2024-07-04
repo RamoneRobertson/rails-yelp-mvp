@@ -15,18 +15,24 @@ body {
   line-height: 40px;
 }
 
-@media (width > 500px) {
-  .grid {--column-count: 2;}
-}
-
-@media (width > 900px) {
-  .grid {--column-count: 3;}
-}
-
 .restaurant-form {
   margin: 0 auto;
 }
 
 .review-form {
   margin: 0 auto;
+}
+
+.card > img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+@media (width > 500px) {
+  .grid {--column-count: 2;}
+}
+
+@media (width > 900px) {
+  .grid {--column-count: 3;}
 }
